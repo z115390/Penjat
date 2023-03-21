@@ -1,0 +1,85 @@
+<!DOCTYPE html
+<html>
+    
+    <head>       
+        <title>Prototip Joc del Penjat</title>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="penjat.css">
+        <script src="penjat.js"></script>
+    </head>
+     
+    <body
+         body onload=AmagaImg();
+         style="background-image: url('img/Desert.png');
+         background-size: 640px 480px; background-repeat: no-repeat;">
+        
+        <h1>Prototip Joc del Penjat</h1>
+        
+        <input id="Lletra" type="text"               
+         placeholder="Escriu una lletra minúscula"/>
+        
+        <button onclick="Comprovar()">Comprovar</button>        
+             <h2>Paraula</h2>             
+             <div id="Paraula">_ _ _ _ _ _ _</div>
+             <h2>Vides</h2> 
+             <div id="Vides">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_</div>
+             <h2>Lletres</h2>
+             <div id="Lletres">_ _ _ _ _ _ _</div>
+             
+        <img src="img/ahorcado_0.png" id="ahorcado_0"  style="width:280px;height:270;" title="Et queden 0 vides!">
+        <img src="img/ahorcado_1.png" id="ahorcado_1"  style="width:280px;height:270;" title="Et queden 1 vides!">
+        <img src="img/ahorcado_2.png" id="ahorcado_2"  style="width:280px;height:270;" title="Et queden 2 vides!">
+        <img src="img/ahorcado_3.png" id="ahorcado_3"  style="width:280px;height:270;" title="Et queden 3 vides!">
+        <img src="img/ahorcado_4.png" id="ahorcado_4"  style="width:280px;height:270;" title="Et queden 4 vides!">
+        <img src="img/ahorcado_5.png" id="ahorcado_5"  style="width:280px;height:270;" title="Et queden 5 vides!">
+        <img src="img/ahorcado_6.png" id="ahorcado_6"  style="width:280px;height:270;" title="Et queden 6 vides!">
+        
+        <audio controls>
+            <source src="aud/bell_toll.mp3" type="audio/mpeg">
+              Your browser does not support the <code>audio</code> tag.
+        </audio>
+        
+        <audio controls>
+            <source src="aud/bell_toll_x3.mp3" type="audio/mpeg">
+            Your browser does not support the <code>audio</code> tag.
+        </audio>
+        
+        <audio controls>
+            <source src="aud/boom_cloud.mp3" type="audio/mpeg">
+            Your browser does not support the <code>audio</code> tag.
+        </audio>
+        
+        <audio controls>
+            <source src="aud/cat-fight.mp3" type="audio/mpeg">
+            Your browser does not support the <code>audio</code> tag.
+        </audio>
+        
+        <audio controls>
+            <source src="aud/cheer.mp3" type="audio/mpeg">
+            Your browser does not support the <code>audio</code> tag.
+        </audio>
+        
+        <audio controls>
+            <source src="aud/clock_ticking.mp3" type="audio/mpeg">
+            Your browser does not support the <code>audio</code> tag.
+        </audio>
+        
+        <audio controls>
+            <source src="aud/miau.mp3" type="audio/mpeg"> id="mistery">
+            Your browser does not support the <code>audio</code> tag.
+        </audio>
+        <audio id="mistery"><source src="aud/mistery.mp3" type="audio/mpeg"></audio>
+        
+        <audio controls>
+            <source src="aud/mystery.mp3" type="audio/mpeg">
+            Your browser does not support the <code>audio</code> tag.
+        </audio>
+        
+        <footer>
+           <p><strong>Crèdits:
+            <a href="https://prosselloe.wordpress.com/2022/11/22/el-joc-del-penjat-on-scratch/">El joc del penjat on Scratch</a>
+           </p>
+        </footer>
+    </body>
+</html>
