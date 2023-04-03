@@ -2,29 +2,34 @@
     
     // variables
     var Vides =7;
-    var Paraula ="";
-    var Lletra ="";              
-    var Paraula = paraules[Math.floor(Math.random()* paraules.length)]; 
+    // var Paraula ="";
+    var Endevinades = [];
     var Lletres = ["_","_","_","_","_","_","_"];
+    var Lletra = "";              
+    // var Paraula = paraules[Math.floor(Math.random()* paraules.length)]; 
     var Punts = 0; 
-    var endevinades = [];
     
-    var pistes = ["A la quinta forca", "A ca un penjat, no hi anomenis cordes", "Setze jutges d'un jutjat mengen fetge d'un penjat"];
-    var paraules = ["cordes","fetge", "força", "jutges", "jutjat", "mengen", "penjat", "quinta", "setze"]; 
+    var pistes = ["A la quinta forca", 
+        "A ca un penjat, no hi anomenis cordes", 
+        "Setze jutges d'un jutjat mengen fetge d'un penjat"];
+    var paraules = ["cordes",
+        "fetge", "força", "jutges", 
+        "jutjat", "mengen", "penjat", 
+        "quinta", "setze"]; 
     var paraulespistes = [1, 2, 0, 2, 2, 2, 1, 0, 2];
     
    
    
         var taula = [
-                {"paraula": "cordes", "pista": "A ca un penjat, no hi anomenis cordes"},
-                {"paraula": "fetge", "pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
-                {"paraula": "forca", "pista": "A la quinta forca"},
-                {"paraula": "jutges", "pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
-                {"paraula": "jutjat", "pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
-                {"paraula": "mengen", "pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
-                {"paraula": "penjat", "pista": "A ca un penjat, no hi anomenis cordes"},
-                {"paraula": "quinta", "pista": "A la quinta forca"},
-                {"paraula": "setze", "pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"}
+              {"paraula": "cordes", "pista": "A ca un penjat, no hi anomenis cordes"},
+              {"paraula": "fetge",  "pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
+              {"paraula": "forca",  "pista": "A la quinta forca"},
+              {"paraula": "jutges", "pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
+              {"paraula": "jutjat", "pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
+              {"paraula": "mengen", "pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"},
+              {"paraula": "penjat", "pista": "A ca un penjat, no hi anomenis cordes"},
+              {"paraula": "quinta", "pista": "A la quinta forca"},
+              {"paraula": "setze",  "pista": "Setze jutges d'un jutjat mengen fetge d'un penjat"}
         ];
         
 
@@ -38,23 +43,45 @@
     var pista = taula[aleatori].pista;
     
     //marcamos cada letra "_"
-    for (var i = 0; i < Paraula.lengt; i++){
-        Paraula[i] = "_";
+    for (var i = 0; i < paraula.length; i++){
+        Endevinades[i] = "_";
     }
     
     
     function Comprovar() {
-        // alert("Comprovar");
+        alert(paraula);
         var Lletra = document.getElementById("Lletra").value;
-
-        if ((Lletra >= "a") && (Lletra <= "m")) {
-            document.getElementById("Paraula").innerHTML = "encert";
+        
+        var pos = paraula.indexOf(Lletra);
+        if (pos > -1) {
+            
+           for (var i = pos; i < paraula.length; i++) {
+               if (paraula[i] == Lletra) {
+                   Endevinades[i]= Lletra;
+               }  
+           }
+           
+       
+            document.getElementById("Paraula").innerHTML = Endevinades;
             window.alert('Lletra' + " has encert ");
+            document.getElementById("miau").play ();
+            
         } else {
-            document.getElementById("Lletres").innerHTML = "fallat";
-            window.alert('Lletra' + " has fallat ");
-            Vides--;
-            document.getElementById("Vides").innerHTML = Vides; 
+         
+           document.getElementById("ahorcado_6").hidden = false;
+           document.getElementById("ahorcado_5").hidden = true; 
+           document.getElementById("ahorcado_4").hidden = false;
+           document.getElementById("ahorcado_3").hidden = true;
+           document.getElementById("ahorcado_2").hidden = false;
+           document.getElementById("ahorcado_1").hidden = true;
+           ocument.getElementById("ahorcado_0").hidden = false;
+           
+           window.alert('Lletra' + " has fallat ");
+           document.getElementById("boom_cloud").play ();
+           Lletres[7 - Vides] = Lletra;
+           document.getElementById("Lletres").innerHTML = Lletres;
+           Vides--;
+           document.getElementById("Vides").innerHTML = Vides; 
         }
         
     }
