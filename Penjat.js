@@ -74,7 +74,7 @@
            document.getElementById("ahorcado_3").hidden = true;
            document.getElementById("ahorcado_2").hidden = false;
            document.getElementById("ahorcado_1").hidden = true;
-           ocument.getElementById("ahorcado_0").hidden = false;
+           document.getElementById("ahorcado_0").hidden = false;
            
            window.alert('Lletra' + " has fallat ");
            document.getElementById("boom_cloud").play ();
