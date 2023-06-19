@@ -1,5 +1,4 @@
-    
-    
+   
     // variables
     var Vides =7;
     // var Paraula ="";
@@ -51,7 +50,7 @@
     
     
     function Comprovar() {
-        alert(paraula);
+        // alert(paraula);
         var Lletra = document.getElementById("Lletra").value;
     
         if ((Endevinades.indexOf(Lletra) > -1) || (Lletres.indexOf(Lletra) > -1)) { 
