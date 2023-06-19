@@ -4,6 +4,7 @@
     var Vides =7;
     // var Paraula ="";
     var Endevinades = [];
+    var Fallades = [];
     var Lletres = ["_","_","_","_","_","_","_"];
     var Lletra = "";              
     // var Paraula = paraules[Math.floor(Math.random()* paraules.length)]; 
@@ -45,45 +46,65 @@
     //marcamos cada letra "_"
     for (var i = 0; i < paraula.length; i++){
         Endevinades[i] = "_";
+        Fallades[i] = "_";
     }
     
     
     function Comprovar() {
         alert(paraula);
         var Lletra = document.getElementById("Lletra").value;
-        
-        var pos = paraula.indexOf(Lletra);
-        if (pos > -1) {
-            
-           for (var i = pos; i < paraula.length; i++) {
-               if (paraula[i] == Lletra) {
-                   Endevinades[i]= Lletra;
-               }  
-           }
-           
-       
-            document.getElementById("Paraula").innerHTML = Endevinades;
-            window.alert('Lletra' + " has encert ");
-            document.getElementById("miau").play ();
-            
+    
+        if ((Endevinades.indexOf(Lletra) > -1) || (Lletres.indexOf(Lletra) > -1)) { 
+            window.alert("Lletra repetida");
+
         } else {
-         
-           document.getElementById("ahorcado_6").hidden = false;
-           document.getElementById("ahorcado_5").hidden = true; 
-           document.getElementById("ahorcado_4").hidden = false;
-           document.getElementById("ahorcado_3").hidden = true;
-           document.getElementById("ahorcado_2").hidden = false;
-           document.getElementById("ahorcado_1").hidden = true;
-           document.getElementById("ahorcado_0").hidden = false;
-           
-           window.alert('Lletra' + " has fallat ");
-           document.getElementById("boom_cloud").play ();
-           Lletres[7 - Vides] = Lletra;
-           document.getElementById("Lletres").innerHTML = Lletres;
-           Vides--;
-           document.getElementById("Vides").innerHTML = Vides; 
+
+            var pos = paraula.indexOf(Lletra);
+            if (pos > -1) {
+
+               for (var i = pos; i < paraula.length; i++) {
+                   if (paraula[i] == Lletra) {
+                       Endevinades[i]= Lletra;
+                    
+                   }  
+               }
+
+                document.getElementById("Paraula").innerHTML = Endevinades;
+                window.alert('Lletra' + " has encert ");
+                document.getElementById("miau").play ();
+
+            } else {
+
+               /*
+               document.getElementById("ahorcado_6").hidden = false;
+               document.getElementById("ahorcado_5").hidden = true; 
+               document.getElementById("ahorcado_4").hidden = false;
+               document.getElementById("ahorcado_3").hidden = true;
+               document.getElementById("ahorcado_2").hidden = false;
+               document.getElementById("ahorcado_1").hidden = true;
+               document.getElementById("ahorcado_0").hidden = false;
+               */
+ 
+               document.getElementById("Paraula").innerHTML = Fallades;
+               window.alert('Lletra' + " has fallat ");
+               document.getElementById("boom_cloud").play ();
+               Lletres[7 - Vides] = Lletra;
+               document.getElementById("Lletres").innerHTML = Lletres;
+               Vides--;
+               document.getElementById("Vides").innerHTML = Vides; 
+            }
+
+            if (Vides == 0) {
+                window.alert("i has perdut");
+                document.body.style.backgroundImage = "url('img/Jungle.png')"
+            }
+
+            if (Endevinades.indexOf("_") == -1) { 
+                window.alert("i has guanyat");
+                document.body.style.backgroundImage = "url('img/Party.png')"
+
+            }
         }
-        
     }
 
          
